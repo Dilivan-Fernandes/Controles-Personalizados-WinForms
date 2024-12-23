@@ -5,12 +5,22 @@ using static System.Net.Mime.MediaTypeNames;
 namespace IF_VeloxFramework.Controles
 {
     public class IF_Velox_Texto:TextBox
-
     {
+            /*As cores do controle vem de uma classe chamada de Config,
+             mais você pode substituir a chamada das cor que vem da classe
+             por propriedades que você mesmo pode criar aqui, ou, você pode
+             adicionar as cores dentro dos métodos.
+             */
+             
         protected override void OnEnter(EventArgs e)
         {
             base.OnEnter(e);
             BackColor = Config.CorEntrada;
+             /*A cor do BackColor, vem de uma classe chamada Config,
+             mais você pode substituir a chamada da cor que vem da classe pela
+             cor de sua preferência aqui mesmo no método, ou,
+             você pode criar propriedades de cores do seu gosto.             
+             */
         }
 
         protected override void OnLeave(EventArgs e)
