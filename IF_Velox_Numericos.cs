@@ -5,10 +5,8 @@ using System.ComponentModel;
 namespace IF_VeloxFramework.Controles
 {
     public class IF_Velox_Numericos : IF_Velox_Texto
-    {
-        //Propriedades
-
-        //Propriedade para configurar a quantidade de casas decimais
+    {       
+       
         private int vCasasDecimais =2;
 
         [DisplayName("_Casas Decimais")]
@@ -23,8 +21,7 @@ namespace IF_VeloxFramework.Controles
         // Propriedade para formatar como moeda
         private bool vMoeda = false;
 
-        [DisplayName("_Formatar como Moedda")]
-        [Description("Define a propriedade de entrada como falores monetário.")]
+        [DisplayName("_Formatar como Moeda")]        
         [Category("_IF_Velox")]
         public bool Moeda
         {
@@ -43,14 +40,11 @@ namespace IF_VeloxFramework.Controles
         {
             get { return vForcarFormatacao; }
             set { vForcarFormatacao = value; }
-        }
-
-        //================================================================
+        }       
 
         private bool vPermitirZerado = false;
 
-        [DisplayName("_Permitir Valores Zerados")]
-        [Description("xxx.")]
+        [DisplayName("_Permitir Valores Zerados")]     
         [Category("_IF_Velox")]
         public bool PermitirZerado
         {
@@ -63,35 +57,27 @@ namespace IF_VeloxFramework.Controles
 
         private bool vPermitirNegativo = false;
 
-        [DisplayName("_Permitir Valores Negativos")]
-        [Description("xxx.")]
+        [DisplayName("_Permitir Valores Negativos")]      
         [Category("_IF_Velox")]
         public bool PermitirNegativo
         {
             get { return vPermitirNegativo; }
             set { vPermitirNegativo = value; }
         }
-
-        //====================================================================
+     
         private bool vColorirNegativo = true;
 
-        [DisplayName("_Colorir de vermelho Valores Negativos")]
-        [Description("xxx.")]
+        [DisplayName("_Colorir de vermelho Valores Negativos")]      
         [Category("_IF_Velox")]
         public bool ColorirNegativo
         {
             get { return vColorirNegativo; }
             set { vColorirNegativo = value; }
-        }
-        //=====================================================================
-
+        }   
+ 
        
-        
-       
-    
-       
-
-        //Bloquear a entrada de caracteres não numéricos
+      
+      
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
@@ -114,7 +100,7 @@ namespace IF_VeloxFramework.Controles
                 goto Continuar;
             }
 
-                // Se o valor digitado for caracter
+                
             if (char.IsDigit(e.KeyChar) == false && e.KeyChar != ',')// Libera só números e vírgulas
             {
                 // Bloqueia a entrada do valor
@@ -175,21 +161,13 @@ namespace IF_VeloxFramework.Controles
             if (Text == string.Empty)
             {
                 return;
-            }
-
-
-           
-
-            // Formatar como moeda
-            // Letra N significa Number = números
-            // Letra C significa currency = Monetário / Moeda
-
+            }          
+            
 
             string v = Text.Replace("R", "")
                            .Replace("$", "")
                            .Replace(" ", "")
                            .Replace(".", "");
-
 
             try
             {
